@@ -10,7 +10,3 @@ export const postAPI = (endpoint, payload) => {
 export const putAPI = (endpoint, payload) => {
   return AxiosInstance.put(endpoint, payload).then((res) => res.data);
 };
-
-export const deleteAPI = (endpoint, payload) => {
-  return AxiosInstance.delete(endpoint, payload).then((res) => res.data);
-};

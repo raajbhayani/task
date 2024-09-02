@@ -2,9 +2,9 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import store from "../store";
 
-// const unauthorizedCode = [401];
+const unauthorizedCode = [401];
 
-const BaseUrl = "http://localhost:4000/";
+const BaseUrl = "YOUR_API_URL";
 
 const AxiosInstance = axios.create({
   timeout: 60000,
