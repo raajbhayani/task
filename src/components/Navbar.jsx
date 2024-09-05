@@ -1,6 +1,14 @@
 import { Icon } from "@iconify/react"
+import { useState } from "react"
 
 const Navbar = () => {
+
+
+    const [mobileView, setMobileView] = useState(false)
+
+
+    // sidebar-visible
+
     return (
 
         <>
@@ -8,14 +16,14 @@ const Navbar = () => {
                 <div className="header-top header-top-ptb-1 d-none d-lg-block">
                     <div className="container">
                         <div className="row align-items-center">
-                            <div className="col-xl-6 col-lg-4">
+                            <div className="col-xl-6 col-lg-6">
                                 <div className="header-info">
                                     <ul>
                                         <li>Up to 70% off & fast shipping | Labor Day Clearance feat. Sealy </li>
                                     </ul>
                                 </div>
                             </div>
-                            <div className="col-xl-6 col-lg-4">
+                            <div className="col-xl-6 col-lg-6">
                                 <div className="header-info header-info-right">
                                     <ul>
                                         <li><a className="language-dropdown-active" href="#">Our App</a></li>
@@ -252,7 +260,7 @@ const Navbar = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="header-action-icon-2 d-block d-lg-none">
+                                    <div className="header-action-icon-2 d-block d-lg-none" onClick={() => setMobileView(true)}>
                                         <div className="burger-icon burger-icon-white">
                                             <span className="burger-icon-top" />
                                             <span className="burger-icon-mid" />
@@ -267,13 +275,13 @@ const Navbar = () => {
             </header>
 
 
-            <div className="mobile-header-active mobile-header-wrapper-style">
+            <div className={`mobile-header-active mobile-header-wrapper-style ${mobileView ? "sidebar-visible" : ''}`}>
                 <div className="mobile-header-wrapper-inner">
                     <div className="mobile-header-top">
                         <div className="mobile-header-logo">
                             <a href="/"><img src="download.png" alt="logo" /></a>
                         </div>
-                        <div className="mobile-menu-close close-style-wrap close-style-position-inherit">
+                        <div className="mobile-menu-close close-style-wrap close-style-position-inherit" onClick={() => setMobileView(false)}>
                             <button className="close-style search-close">
                                 <i className="icon-top" />
                                 <i className="icon-bottom" />
@@ -288,43 +296,11 @@ const Navbar = () => {
                             </form>
                         </div>
                         <div className="mobile-menu-wrap mobile-header-border">
-                            <div className="main-categori-wrap mobile-header-border">
-                                <a className="categori-button-active-2" href="#">
-                                    <span className="fi-rs-apps" /> Browse Categories
-                                </a>
-                                <div className="categori-dropdown-wrap categori-dropdown-active-small">
-                                    <ul>
-                                        <li><a href="/">
-                                            <i className="evara-font-dress" />Women s Clothing</a>
-                                        </li>
-                                        <li><a href="/">
-                                            <i className="evara-font-tshirt" />Men s Clothing</a>
-                                        </li>
-                                        <li> <a href="/">
-                                            <i className="evara-font-smartphone" /> Cellphones</a>
-                                        </li>
-                                        <li><a href="/">
-                                            <i className="evara-font-desktop" />Computer &amp;
-                                            Office</a></li>
-                                        <li><a href="/">
-                                            <i className="evara-font-cpu" />Consumer
-                                            Electronics</a></li>
-                                        <li><a href="/">
-                                            <i className="evara-font-home" />Home &amp; Garden</a></li>
-                                        <li><a href="/">
-                                            <i className="evara-font-high-heels" />Shoes</a></li>
-                                        <li><a href="/">
-                                            <i className="evara-font-teddy-bear" />Mother &amp;
-                                            Kids</a></li>
-                                        <li><a href="/">
-                                            <i className="evara-font-kite" />Outdoor fun</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+
                             {/* mobile menu start */}
                             <nav>
                                 <ul className="mobile-menu">
-                                    <li className="menu-item-has-children"><span className="menu-expand" /><a href="/">Home</a>
+                                    {/* <li><a className="active" href="/">Furniture</a>
                                         <ul className="dropdown">
                                             <li><a href="/">Home 1</a></li>
                                             <li><a href="/">Home 2</a></li>
@@ -416,12 +392,142 @@ const Navbar = () => {
                                             <li><a href="#">German</a></li>
                                             <li><a href="#">Spanish</a></li>
                                         </ul>
+                                    </li> */}
+
+
+
+
+                                    <li  className="menu-item-has-children"><a className="active" href="/">Furniture
+                                    </a>
+                                        <ul className="sub-menu">
+                                            <li><a href="/">Outdoor</a></li>
+                                            <li><a href="/">Bedding & Bath</a></li>
+                                            <li><a href="">Rugs</a></li>
+                                            <li><a href="">Décor & Pillows</a></li>
+                                        </ul>
                                     </li>
+                                    <li  className="menu-item-has-children">
+                                        <a href="">Outdoor</a>
+                                    </li>
+                                    <li  className="menu-item-has-children"><a href="/">Shop </a>
+                                        <ul className="sub-menu">
+                                            <li><a href="/">Shop Grid – Right Sidebar</a></li>
+                                            <li><a href="">Shop Grid – Left Sidebar</a></li>
+                                            <li><a href="">Shop List – Right Sidebar</a></li>
+                                            <li><a href="">Shop List – Left Sidebar</a></li>
+                                            <li><a href="">Shop - Wide</a></li>
+                                            <li><a href="#">Single Product <i className="fi-rs-angle-right" /></a>
+                                                <ul className="level-menu">
+                                                    <li><a href="/">Product – Right Sidebar</a>
+                                                    </li>
+                                                    <li><a href="">Product – Left Sidebar</a></li>
+                                                    <li><a href="">Product – No sidebar</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="">Shop – Filter</a></li>
+                                            <li><a href="/">Shop – Wishlist</a></li>
+                                            <li><a href="/">Shop – Cart</a></li>
+                                            <li><a href="">Shop – Checkout</a></li>
+                                            <li><a href="">Shop – Compare</a></li>
+                                        </ul>
+                                    </li>
+                                    <li className="position-static"><a href="#">Bedding & Bath </a>
+                                        <ul className="mega-menu">
+                                            <li className="sub-mega-menu sub-mega-menu-width-22">
+                                                <a className="menu-title" href="#">Women s Fashion</a>
+                                                <ul>
+                                                    <li><a href="/">Dresses</a></li>
+                                                    <li><a href="/">Blouses &amp; Shirts</a></li>
+                                                    <li><a href="/">Hoodies &amp; Sweatshirts</a></li>
+                                                    <li><a href="/">Wedding Dresses</a></li>
+                                                    <li><a href="/">Prom Dresses</a></li>
+                                                    <li><a href="/">Cosplay Costumes</a></li>
+                                                </ul>
+                                            </li>
+                                            <li className="sub-mega-menu sub-mega-menu-width-22">
+                                                <a className="menu-title" href="#">Men s Fashion</a>
+                                                <ul>
+                                                    <li><a href="/">Jackets</a></li>
+                                                    <li><a href="/">Casual Faux Leather</a></li>
+                                                    <li><a href="/">Genuine Leather</a></li>
+                                                    <li><a href="/">Casual Pants</a></li>
+                                                    <li><a href="/">Sweatpants</a></li>
+                                                    <li><a href="/">Harem Pants</a></li>
+                                                </ul>
+                                            </li>
+                                            <li className="sub-mega-menu sub-mega-menu-width-22">
+                                                <a className="menu-title" href="#">Technology</a>
+                                                <ul>
+                                                    <li><a href="/">Gaming Laptops</a></li>
+                                                    <li><a href="/">Ultraslim Laptops</a></li>
+                                                    <li><a href="/">Tablets</a></li>
+                                                    <li><a href="/">Laptop Accessories</a></li>
+                                                    <li><a href="/">Tablet Accessories</a></li>
+                                                </ul>
+                                            </li>
+                                            <li className="sub-mega-menu sub-mega-menu-width-34">
+                                                <div className="menu-banner-wrap">
+                                                    <a href="/"><img src="assets/imgs/banner/menu-banner.jpg" alt="Evara" /></a>
+                                                    <div className="menu-banner-content">
+                                                        <h4>Hot deals</h4>
+                                                        <h3>Don t miss<br /> Trending</h3>
+                                                        <div className="menu-banner-price">
+                                                            <span className="new-price text-success">Save to 50%</span>
+                                                        </div>
+                                                        <div className="menu-banner-btn">
+                                                            <a href="/">Shop now</a>
+                                                        </div>
+                                                    </div>
+                                                    <div className="menu-banner-discount">
+                                                        <h3>
+                                                            <span>35%</span> off
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li  className="menu-item-has-children"><a href="">Rugs </a>
+                                        <ul className="sub-menu">
+                                            <li><a href="">Blog Category Grid</a></li>
+                                            <li><a href="">Blog Category List</a></li>
+                                            <li><a href="">Blog Category Big</a></li>
+                                            <li><a href="">Blog Category Wide</a></li>
+                                            <li><a href="#">Single Post <i className="fi-rs-angle-right" /></a>
+                                                <ul className="level-menu level-menu-modify">
+                                                    <li><a href="">Left Sidebar</a></li>
+                                                    <li><a href="">Right Sidebar</a></li>
+                                                    <li><a href="">No Sidebar</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li  className="menu-item-has-children"><a href="#">Décor & Pillows </a>
+                                        <ul className="sub-menu">
+                                            <li><a href="">About Us</a></li>
+                                            <li><a href="">Contact</a></li>
+                                            <li><a href="">My Account</a></li>
+                                            <li><a href="/">login/register</a></li>
+                                            <li><a href="">Purchase Guide</a></li>
+                                            <li><a href="">Privacy Policy</a></li>
+                                            <li><a href="">Terms of Service</a></li>
+                                            <li><a href="">404 Page</a></li>
+                                        </ul>
+                                    </li>
+                                    <li className="menu-item-has-children"><a href="">Lighting</a></li>
+                                    <li className="menu-item-has-children"><a href="">Organization</a></li>
+                                    <li className="menu-item-has-children"><a href="">Kitchen</a></li>
+                                    <li className="menu-item-has-children"><a href="">Baby & Kids</a></li>
+                                    <li className="menu-item-has-children"><a href="">Home Improvement</a></li>
+                                    <li className="menu-item-has-children"><a href="">Appliances</a></li>
+                                    <li className="menu-item-has-children"><a href="">Pet</a></li>
+                                    <li className="menu-item-has-children"><a href="">Holiday</a></li>
                                 </ul>
                             </nav>
                             {/* mobile menu end */}
                         </div>
-                        <div className="mobile-header-info-wrap mobile-header-border">
+
+                        {/* <div className="mobile-header-info-wrap mobile-header-border">
                             <div className="single-mobile-header-info mt-30">
                                 <a href=""> Our location </a>
                             </div>
@@ -431,15 +537,9 @@ const Navbar = () => {
                             <div className="single-mobile-header-info">
                                 <a href="#">(+01) - 2345 - 6789 </a>
                             </div>
-                        </div>
-                        <div className="mobile-social-icon">
-                            <h5 className="mb-15 text-grey-4">Follow Us</h5>
-                            <a href="#"><img src="assets/imgs/theme/icons/icon-facebook.svg" /></a>
-                            <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" /></a>
-                            <a href="#"><img src="assets/imgs/theme/icons/icon-instagram.svg" /></a>
-                            <a href="#"><img src="assets/imgs/theme/icons/icon-pinterest.svg" /></a>
-                            <a href="#"><img src="assets/imgs/theme/icons/icon-youtube.svg" /></a>
-                        </div>
+                            
+                        </div> */}
+
                     </div>
                 </div>
             </div>

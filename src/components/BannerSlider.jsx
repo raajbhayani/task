@@ -18,12 +18,12 @@ const BannerSlider = () => {
 
     const setting = {
         infinite: true,
-        autoplay: true,
+        // autoplay: true,
         speed: 1000,
         arrows: false,
         swipeToSlide: true,
         slidesToShow: 1,
-        adaptiveHeight: true,
+        // adaptiveHeight: true,
     }
 
 
@@ -39,9 +39,9 @@ const BannerSlider = () => {
                                     <div className="container">
                                         <div className="row align-items-center slider-animated-1">
                                             <div className="col-lg-12 col-md-12">
-                                                <div className="single-slider-img single-slider-img-1">
                                                     <img className="animated slider-1-1" src={data?.image} />
-                                                </div>
+                                                {/* <div className="single-slider-img single-slider-img-1">
+                                                </div> */}
                                             </div>
                                         </div>
                                     </div>
